@@ -1,0 +1,85 @@
+TextField, PasswordField{
+    -fx-font-size: 13px;
+    -fx-padding: 4 5 4 5;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0 0 0 0;
+    -fx-border-width: 0.5px;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 0 0;
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+}
+
+TextField:focused, PasswordField:focused{
+    -fx-border-color: #009688;
+    -fx-border-width: 0.75px;
+    -fx-effect: dropshadow(three-pass-box, #bbb, 3, 0, 0, 0);
+}
+
+TextArea{
+    -fx-font-size: 11px;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0 0 0 0;
+    -fx-border-width: 0.5px;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 0 0;
+}
+
+Button{
+    -fx-font-size: 13px;
+    -fx-background-color: #09C6AB;
+    -fx-background-radius: 0 0 0 0;
+    -fx-border-radius: 0 0 0 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 7 35 5 35;
+}
+
+Button:hover{
+    -fx-background-color: #009688;
+}
+
+.title{
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 25px;
+    -fx-font-weight: 600;
+    -fx-padding: 0 0 0 0;
+}
+
+Separator{
+    -fx-background: #333;
+    -fx-border-style: solid;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0.5 0;
+}
+
+.menu{
+    -fx-text-fill: #fff;
+    -fx-background-color: #333;
+    -fx-effect: dropshadow(three-pass-box, #000, 20, 0, 0, 0);
+}
+
+
+.menu-btn{
+    -fx-padding: 0 5 0 5;
+    -fx-background-color: #333;
+}
+
+.menu-btn:hover{
+    -fx-text-fill: rgba(255, 255, 255, .5);
+}
+
+.field-label{
+    -fx-font-size: 12px;
+    -fx-padding: 15 0 0 0;
+}
+.search-bar{
+    -fx-font-size: 12px;
+    -fx-padding: 4 5 4 5;
+    -fx-border-width: 0;
+    -fx-border-color: #333;
+    -fx-text-fill: #d7d7d7;
+    -fx-background-color: #444;
+}
+
+.submit{
+    -fx-padding: 30 0 0 0;
+}
