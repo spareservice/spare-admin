@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<FlowPane fx:id="loginPane" alignment="CENTER" columnHalignment="CENTER" minHeight="635.0" minWidth="1050.0" style="-fx-background-color: #f4f4f4;" styleClass="root" stylesheets="@home.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.Home">
+<FlowPane fx:id="loginPane" alignment="CENTER" columnHalignment="CENTER" minHeight="635.0" minWidth="1050.0" style="-fx-background-color: #ffffff;" styleClass="root" stylesheets="@home.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.Home">
     <children>
         <VBox alignment="TOP_CENTER" prefWidth="1050.0">
             <children>
@@ -23,13 +23,13 @@
                         <Insets bottom="30.0" />
                     </VBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="emailField" focusColor="#007bff" maxWidth="200.0" prefWidth="200.0" promptText="Email" unFocusColor="#4d4d4d66">
+                <JFXTextField fx:id="emailField" focusColor="#007bff" maxWidth="200.0" prefWidth="200.0" promptText="Email" unFocusColor="#68f4f2">
                     <VBox.margin>
                         <Insets bottom="25.0" />
                     </VBox.margin>
                 </JFXTextField>
 
-                <JFXPasswordField fx:id="passwordField" focusColor="#007bff" maxWidth="200.0" promptText="Mot de passe" unFocusColor="#4d4d4d67">
+                <JFXPasswordField fx:id="passwordField" focusColor="#007bff" maxWidth="200.0" promptText="Mot de passe" unFocusColor="#68f4f2">
                     <VBox.margin>
                         <Insets bottom="25.0" />
                     </VBox.margin>
@@ -37,9 +37,7 @@
 
                 <JFXButton fx:id="submit" onAction="#login" prefHeight="28.0" prefWidth="188.0" style="-fx-background-color: #007bff;" text="Se connecter" textAlignment="CENTER" textFill="WHITE" />
             </children>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
+
         </VBox>
     </children>
 </FlowPane>

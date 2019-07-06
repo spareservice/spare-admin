@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,8 +15,10 @@ public class JsonRead {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
         con.setRequestMethod("GET");
         int responseCode = con.getResponseCode();
+
        // System.out.println("\nSending 'GET' request to URL : " + url);
         //System.out.println("Response Code : " + responseCode);
         BufferedReader in = new BufferedReader(
@@ -29,14 +33,17 @@ public class JsonRead {
         //System.out.println(response.toString());
 
         JSONArray arr = new JSONArray(response.toString());
-      //  System.out.println(arr);
-       // for (int i = 0; i < arr.length(); i++) {
-       //     JSONObject  o = arr.getJSONObject(i);
-      //     System.out.println(o.get("email"));
-      //  }
+
+         //  System.out.println(arr);
+        // for (int i = 0; i < arr.length(); i++) {
+        //     JSONObject  o = arr.getJSONObject(i);
+        //     System.out.println(o.get("email"));
+       //  }
 
         return arr;
     }
+
+
 
 
 

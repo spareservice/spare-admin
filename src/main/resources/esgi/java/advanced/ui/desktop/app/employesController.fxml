@@ -18,48 +18,10 @@
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXTextField?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.EmployesController">
+<VBox  styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea"  style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.EmployesController">
 
     <children>
-        <MenuBar VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+
         <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -74,11 +36,11 @@
                                         <Color blue="0.624" green="0.624" red="0.624" fx:id="x6" />
                                     </textFill></Label>
 
-                                <Button fx:id="AdminButton" layoutX="21.0" layoutY="66.0" mnemonicParsing="false" onAction="#adminPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Admin" textFill="WHITE" />
-                                <Button fx:id="EmployeeButton" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" onAction="#employeePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Employes" textFill="WHITE" />
-                                <Button fx:id="ClienButton" layoutX="21.0" layoutY="310.0" mnemonicParsing="false" onAction="#clientPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Client " textFill="WHITE" />
-                                <Button fx:id="ServiceButton" layoutX="21.0" layoutY="222.0" mnemonicParsing="false" onAction="#servicePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="service " textFill="WHITE" />
-                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#FacturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="WHITE" />
+                                <Button fx:id="AdminButton" layoutX="21.0" layoutY="66.0" mnemonicParsing="false" onAction="#adminPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Admin" textFill="#68f4f2"/>
+                                <Button fx:id="EmployeeButton" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" onAction="#employeePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Employes" textFill="#68f4f2"/>
+                                <Button fx:id="ClienButton" layoutX="21.0" layoutY="310.0" mnemonicParsing="false" onAction="#clientPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Client " textFill="#68f4f2"/>
+                                <Button fx:id="ServiceButton" layoutX="21.0" layoutY="222.0" mnemonicParsing="false" onAction="#servicePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="service " textFill="#68f4f2"/>
+                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#FacturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="#68f4f2"/>
 
                             </children>
                         </AnchorPane>
@@ -111,21 +73,23 @@
                                     </cellValueFactory>
                                 </TableColumn>
 
+                            <TableColumn prefWidth="343.0" text="salaire">
+                                <cellValueFactory><PropertyValueFactory property="salaire" />
+                                </cellValueFactory>
+                            </TableColumn>
+
                             <TableColumn prefWidth="343.0" text="telephone">
                                 <cellValueFactory><PropertyValueFactory property="tel" />
                                 </cellValueFactory>
                             </TableColumn>
 
-                            <TableColumn prefWidth="343.0" text="telephone">
-                                <cellValueFactory><PropertyValueFactory property="salaire" />
-                                </cellValueFactory>
-                            </TableColumn>
-
                         </columns>
                         </TableView>
-                        <Button layoutX="520.0" layoutY="430.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #007bff;" text="add" textAlignment="CENTER" textFill="WHITE" />
-                        <Button layoutX="108.0" layoutY="471.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Remove select colone" textAlignment="CENTER" textFill="WHITE" />
-                        <Button layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Update select colone" textAlignment="CENTER" textFill="WHITE" />
+
+
+                        <Button layoutX="520.0" layoutY="430.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #007bff;" text="add" textAlignment="CENTER" textFill="#68f4f2"/>
+                        <Button layoutX="108.0" layoutY="471.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Remove select colone" textAlignment="CENTER" textFill="#68f4f2"/>
+                        <Button layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Update select colone" textAlignment="CENTER" textFill="#68f4f2"/>
 
                         <JFXTextField fx:id="firstname" layoutX="14.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="firstname" unFocusColor="#4d4d4d66" />
                         <JFXTextField  fx:id="lastname" layoutX="130.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="lastname" unFocusColor="#4d4d4d66" />
@@ -140,4 +104,4 @@
         </SplitPane>
 
     </children>
-</AnchorPane>
+</VBox>

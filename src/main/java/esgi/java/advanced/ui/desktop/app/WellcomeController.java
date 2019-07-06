@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class WellcomeController implements Initializable {
@@ -51,7 +54,6 @@ public class WellcomeController implements Initializable {
         try {
 
             final JSONArray arr = JsonRead.call_me("http://localhost:3000/Admin");
-
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.getJSONObject(i);
                 List<Admin> admins = new ArrayList <>();
@@ -136,6 +138,9 @@ public class WellcomeController implements Initializable {
     }
     public void update(ActionEvent actionEvent) {
 
+
+
+
     }
 
     public void add(ActionEvent actionEvent) throws IOException {
@@ -144,9 +149,21 @@ public class WellcomeController implements Initializable {
          String lastname= this.lastname.getText();
          String email= this.email.getText();
          Admin admin = new Admin(1,firstname,lastname,email);
-         this.tableView.getItems().addAll(admin);
-         String[] data = new String[]{firstname,lastname,email};
-         Httprequest.postRequest(new URL("http://localhost:3000/"+firstname+"/"+lastname+"/"+email+"/addAdmin"),data);
 
+         if (Regex.emailRegex(email)==  true) {
+             this.tableView.getItems().addAll(admin);
+             String[] data = new String[]{firstname,lastname,email};
+             Httprequest.postRequest(new URL("http://localhost:3000/"+firstname+"/"+lastname+"/"+email+"/addAdmin"),data);
+         }else {
+             AfficherAlerte.display("Erreur", "votre email n'est pas correct ");
+         }
+
+
+    }
+
+    public void change(TableColumn.CellEditEvent<Admin,String> cellEditEvent) {
+        Admin person = tableView.getSelectionModel().getSelectedItem();
+        String data= person.getFirstname();
+        System.out.println(data);
     }
 }

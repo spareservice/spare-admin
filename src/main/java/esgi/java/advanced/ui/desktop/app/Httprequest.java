@@ -10,12 +10,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.in;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class Httprequest {
 
@@ -74,8 +71,6 @@ for(int i=0;i<params.size();i++){
 
     params.add(new BasicNameValuePair("@id"+i,data[i]));
 }
-
-
 
         httpURLConnection.setDoInput(true);
         httpURLConnection.setDoOutput(true);

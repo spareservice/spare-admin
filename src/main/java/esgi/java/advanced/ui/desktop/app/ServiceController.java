@@ -1,5 +1,6 @@
 package esgi.java.advanced.ui.desktop.app;
 
+import com.jfoenix.controls.JFXTextField;
 import esgi.java.advanced.ui.desktop.app.Model.Admin;
 import esgi.java.advanced.ui.desktop.app.Model.Mission;
 import javafx.event.ActionEvent;
@@ -22,6 +23,9 @@ import java.util.ResourceBundle;
 public class ServiceController implements Initializable {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
+
+    @FXML private JFXTextField type;
+    @FXML private JFXTextField nom;
     @FXML private TableView <Mission> tableView;
 
     @Override
@@ -113,12 +117,22 @@ public class ServiceController implements Initializable {
 
     }
 
-    public void add(ActionEvent actionEvent) {
+    public void add(ActionEvent actionEvent) throws IOException {
+
+        String type= this.type.getText();
+        String nom= this.nom.getText();
+        Mission mission = new Mission(1,type,nom);
+        this.tableView.getItems().addAll(mission);
+        String[] data = new String[]{type,nom};
+        Httprequest.postRequest(new URL("http://localhost:3000/"+nom+"/"+type+"/ajoutService"),data);
+
+
     }
     public void delete(ActionEvent actionEvent) throws MalformedURLException {
         Mission person = tableView.getSelectionModel().getSelectedItem();
         Httprequest.deleteRequete(new URL("http://localhost:3000/"+person.getNom()+"/supprimerAdmin"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
     }
+
 }
 

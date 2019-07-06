@@ -126,15 +126,23 @@ public class Clientcontroller  implements Initializable {
         String telephone= this.telephone.getText();
         String passeword= this.passeword.getText();
         Client client = new Client(1,firstname,lastname,email,telephone);
-        this.tableView.getItems().addAll(client);
+
         String[] data2 = new String[]{firstname,lastname,email};
         String[] data = new String[]{firstname,lastname,email,passeword,telephone};
-        Httprequest.postRequest(new URL("http://localhost:3000/" +firstname+ "/" +lastname+ "/" +email+ "/" +passeword+ "/" +telephone+ "/ajoutClient"),data);
+        try {
+            Httprequest.postRequest(new URL("http://localhost:3000/client/"+firstname+ "/" +lastname+ "/" +email+ "/" +passeword+ "/" +telephone+"/ajoutClient"),data);
+            this.tableView.getItems().addAll(client);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            AfficherAlerte.display("Erreur", "Il y a eu une erreur");
+        }
+
     }
 
     public void delete(ActionEvent actionEvent) throws MalformedURLException {
         Client person = tableView.getSelectionModel().getSelectedItem();
-        Httprequest.deleteRequete(new URL("http://localhost:3000/"+person.getEmail()+"/supprimerClient"));
+        Httprequest.deleteRequete(new URL("http://localhost:3000/client/"+person.getEmail()+"/supprimerClient"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
 
     }

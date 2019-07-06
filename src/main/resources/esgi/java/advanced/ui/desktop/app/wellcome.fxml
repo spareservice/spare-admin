@@ -17,47 +17,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="tickets" styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.WellcomeController">
+<VBox  styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.WellcomeController">
     <children>
-        <MenuBar VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
         <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -70,7 +31,8 @@
                                     </font>
                                     <textFill>
                                         <Color blue="0.624" green="0.624" red="0.624" fx:id="x6" />
-                                    </textFill></Label>
+                                    </textFill>
+                                </Label>
 
                                 <Button fx:id="AdminButton" layoutX="21.0" layoutY="66.0" mnemonicParsing="false" onAction="#adminPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Admin" textFill="WHITE" />
                                 <Button fx:id="EmployeeButton" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" onAction="#employeePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Employes" textFill="WHITE" />
@@ -96,7 +58,7 @@
 
                         <TableView fx:id="tableView" layoutX="8.0" layoutY="67.0" prefHeight="312.0" prefWidth="685.0">
                             <columns>
-                                <TableColumn prefWidth="233.0" text="firstname">
+                                <TableColumn prefWidth="233.0" text="firstname" onEditCommit="#change">
                                     <cellValueFactory><PropertyValueFactory property="firstname" />
                                     </cellValueFactory>
                                 </TableColumn>
