@@ -28,7 +28,7 @@ public class Httprequest {
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("DELETE");
             code= httpURLConnection.getResponseCode();
-            System.out.println(code);
+            //System.out.println(code);
         } catch (IOException exception) {
             exception.printStackTrace();
         } finally {
@@ -38,28 +38,28 @@ public class Httprequest {
         }
         return code;
     }
-/*
 
-    public void post() throws ClientProtocolException, IOException {
-     CloseableHttpClient client = HttpClients.createDefault();
-    HttpPost httpPost = new HttpPost("http://www.example.com");
- 
-    List <NameValuePair> params = new ArrayList <NameValuePair>();
-    params.add(new BasicNameValuePair("username", "John"));
-    params.add(new BasicNameValuePair("password", "pass"));
-    httpPost.setEntity(new UrlEncodedFormEntity(params));
- 
-    CloseableHttpResponse response = client.execute(httpPost);
-    assertThat(response.getStatusLine().getStatusCode(),equalTo(200));
-    client.close();
+
+
+    public static int  Get(URL url) {
+         HttpURLConnection httpURLConnection = null;
+        httpURLConnection = null;
+        int  code = 0;
+        try {
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            code= httpURLConnection.getResponseCode();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } finally {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        }
+        return code;
     }
-
- */
 public static int postRequest(URL url, String data[]  ) throws IOException {
-
-
     HttpURLConnection httpURLConnection = null;
-    httpURLConnection = null;
     int  code = 0;
 
     try {
@@ -78,12 +78,13 @@ for(int i=0;i<params.size();i++){
         BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(os, "UTF-8"));
         code= httpURLConnection.getResponseCode();
-        System.out.println(params);
+       //
+        // System.out.println(params);
         writer.flush();
         writer.close();
         os.close();
         httpURLConnection.connect();
-        System.out.println(code);
+      //  System.out.println(code);
     } catch (IOException exception) {
         exception.printStackTrace();
     }

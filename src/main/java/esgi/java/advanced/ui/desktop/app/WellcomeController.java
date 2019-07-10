@@ -11,8 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,9 +22,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+
 
 
 public class WellcomeController implements Initializable {
@@ -39,27 +37,19 @@ public class WellcomeController implements Initializable {
     @FXML private TableView<Admin> tableView;
     public static Stage window;
 
-
-
     public static Scene sceneWelcome() throws java.io.IOException{
-        FlowPane pane = FXMLLoader.load(Home.class.getResource("wellcome.fxml"));
+        Parent pane = FXMLLoader.load(Home.class.getResource("wellcome.fxml"));
         return new Scene(pane);
-
     }
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-
-            final JSONArray arr = JsonRead.call_me("http://localhost:3000/Admin");
+            final JSONArray arr = JsonRead.call_me("http://localhost:3000/admin");
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.getJSONObject(i);
                 List<Admin> admins = new ArrayList <>();
                 admins.add(new Admin(1, o.getString("nom"), o.getString("prenom"), o.getString("email")));
                 this.tableView.getItems().addAll(admins);
-
             }
 
         } catch (Exception e) {
@@ -68,6 +58,7 @@ public class WellcomeController implements Initializable {
 
 
     }
+
     @FXML
     public void adminPage(ActionEvent actionEvent) {
 
@@ -78,7 +69,9 @@ public class WellcomeController implements Initializable {
 
         } catch (IOException e) {
             e.printStackTrace();
-            AfficherAlerte.display("Erreur", "Il y a eu une erreur");
+
+           // snackbar.show("helo",3000);
+          //  AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
 
 
@@ -132,7 +125,7 @@ public class WellcomeController implements Initializable {
 
     public void delete(ActionEvent actionEvent) throws MalformedURLException {
         Admin person = tableView.getSelectionModel().getSelectedItem();
-        Httprequest.deleteRequete(new URL("http://localhost:3000/"+person.getEmail()+"/supprimerAdmin"));
+        Httprequest.deleteRequete(new URL("http://localhost:3000/admin/"+person.getEmail()+"/supprimerAdmin"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
 
     }
@@ -151,10 +144,20 @@ public class WellcomeController implements Initializable {
          Admin admin = new Admin(1,firstname,lastname,email);
 
          if (Regex.emailRegex(email)==  true) {
-             this.tableView.getItems().addAll(admin);
              String[] data = new String[]{firstname,lastname,email};
-             Httprequest.postRequest(new URL("http://localhost:3000/"+firstname+"/"+lastname+"/"+email+"/addAdmin"),data);
+             Httprequest.postRequest(new URL("http://localhost:3000/admin/"+firstname+"/"+lastname+"/"+email+"/addAdmin"),data);
+             int code = Httprequest.postRequest(new URL("http://localhost:3000/admin/" + firstname + "/" + lastname + "/" + email + "/addAdmin"), data);
+             if (code == 200){
+                 this.tableView.getItems().addAll(admin);
+             }else{
+
+                 Home.snackbar.enqueue(new JFXSnackbar.SnackbarEvent(" vos identifiens son incorrect !", "error"));
+             }
+
+
          }else {
+            Home.snackbar.enqueue(new JFXSnackbar.SnackbarEvent(" vos identifiens son incorrect !", "error"));
+           //home dd.show("hello",2000);
              AfficherAlerte.display("Erreur", "votre email n'est pas correct ");
          }
 

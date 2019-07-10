@@ -1,28 +1,44 @@
 package esgi.java.advanced.ui.desktop.app.Model;
 
+import com.jfoenix.controls.JFXButton;
+
 public class Employe extends Model <Employe> {
-
-
-    public Employe(int id) {
-        super(id);
-    }
     private String firstname;
     private String lastname;
     private String email;
     private String telephone;
+    private boolean status;
+    private String statusString;
 
 
+    public static JFXButton button;
 
-
-    public Employe(int id, String firstname, String lastname, String email, String tel) {
+    public Employe(int id, String firstname, String lastname, String email, String tel,JFXButton button,boolean status ) {
         super(id);
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.telephone = tel;
+        this.button = button;
+        this.status = status;
 
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public void setStatusString(String statusString) {
+        this.statusString = statusString;
+    }
+
+    public String getStatusString() {
+        return status ? "Valide" : "Invalide";
+    }
 
     public String getFirstname() {
         return firstname;
@@ -56,5 +72,11 @@ public class Employe extends Model <Employe> {
         this.telephone = telephone;
     }
 
+    public JFXButton getButton() {
+        return new JFXButton("Send Mail");
+    }
 
+    public void setButton(JFXButton button) {
+        this.button = button;
+    }
 }

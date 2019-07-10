@@ -26,7 +26,7 @@ TextArea{
 
 Button{
     -fx-font-size: 13px;
-    -fx-background-color: #09C6AB;
+    -fx-background-color: #bc84c6;
     -fx-background-radius: 0 0 0 0;
     -fx-border-radius: 0 0 0 0;
     -fx-text-fill: #FFFFFF;
@@ -82,4 +82,16 @@ Separator{
 
 .submit{
     -fx-padding: 30 0 0 0;
+}
+
+.jfx-snackbar-content {
+    -fx-background-color: #CC0000;
+}
+
+.jfx-snackbar-toast {
+    -fx-text-fill: WHITE;
+}
+
+.jfx-snackbar-action {
+    -fx-text-fill: #ff4081;
 }

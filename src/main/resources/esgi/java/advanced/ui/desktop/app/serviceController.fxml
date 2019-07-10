@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.ServiceController">
+<VBox styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@home.css" fx:controller="esgi.java.advanced.ui.desktop.app.ServiceController">
     <children>
 
         <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -55,12 +55,12 @@
                         <TableView fx:id="tableView" layoutX="8.0" layoutY="67.0" prefHeight="312.0" prefWidth="685.0">
                         <columns>
                               
-                                <TableColumn prefWidth="344.0" text=" type de service">
+                                <TableColumn prefWidth="344.0" text=" nom du service ">
                                     <cellValueFactory><PropertyValueFactory property="type" />
                                     </cellValueFactory>
                                 </TableColumn>
 
-                                <TableColumn prefWidth="383.0" text="nom">
+                                <TableColumn prefWidth="383.0" text="type de service">
                                     <cellValueFactory><PropertyValueFactory property="nom" />
                                     </cellValueFactory>
                                 </TableColumn>

@@ -1,7 +1,6 @@
 package esgi.java.advanced.ui.desktop.app;
 
 import com.jfoenix.controls.JFXTextField;
-import esgi.java.advanced.ui.desktop.app.Model.Admin;
 import esgi.java.advanced.ui.desktop.app.Model.Mission;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -33,7 +31,7 @@ public class ServiceController implements Initializable {
         try {
 
             final JSONArray arr = JsonRead.call_me("http://localhost:3000/services");
-            System.out.println(arr);
+
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.getJSONObject(i);
                 List <Mission> mission = new ArrayList <>();
@@ -48,8 +46,6 @@ public class ServiceController implements Initializable {
 
 
     }
-
-
 
     @FXML
     public void adminPage(javafx.event.ActionEvent actionEvent) {
@@ -124,13 +120,12 @@ public class ServiceController implements Initializable {
         Mission mission = new Mission(1,type,nom);
         this.tableView.getItems().addAll(mission);
         String[] data = new String[]{type,nom};
-        Httprequest.postRequest(new URL("http://localhost:3000/"+nom+"/"+type+"/ajoutService"),data);
-
+        Httprequest.postRequest(new URL("http://localhost:3000/services/"+nom+"/"+type+"/ajoutService"),data);
 
     }
     public void delete(ActionEvent actionEvent) throws MalformedURLException {
         Mission person = tableView.getSelectionModel().getSelectedItem();
-        Httprequest.deleteRequete(new URL("http://localhost:3000/"+person.getNom()+"/supprimerAdmin"));
+        Httprequest.deleteRequete(new URL("http://localhost:3000/services/"+person.getNom()+"/deleteService"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
     }
 

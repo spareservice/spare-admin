@@ -3,11 +3,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 public class JsonRead {
 
@@ -34,11 +33,7 @@ public class JsonRead {
 
         JSONArray arr = new JSONArray(response.toString());
 
-         //  System.out.println(arr);
-        // for (int i = 0; i < arr.length(); i++) {
-        //     JSONObject  o = arr.getJSONObject(i);
-        //     System.out.println(o.get("email"));
-       //  }
+
 
         return arr;
     }

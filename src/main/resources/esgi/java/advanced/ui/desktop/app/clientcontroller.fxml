@@ -17,7 +17,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox  styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.Clientcontroller">
+<?import com.jfoenix.controls.JFXButton?>
+<VBox styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea" stylesheets="@home.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.Clientcontroller">
 
     <children>
         <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">            <items>
@@ -57,7 +58,7 @@
 
                         <TableView fx:id="tableView" layoutX="8.0" layoutY="67.0" prefHeight="312.0" prefWidth="685.0">
                             <columns>
-                                <TableColumn prefWidth="144.0" text="firstname">
+                                <TableColumn prefWidth="128.0" text="firstname">
                                     <cellValueFactory><PropertyValueFactory property="firstname" />
                                     </cellValueFactory>
                                 </TableColumn>
@@ -65,30 +66,40 @@
                                     <cellValueFactory><PropertyValueFactory property="lastname" />
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn prefWidth="155.0" text="email">
+                                <TableColumn prefWidth="150.0" text="email">
                                     <cellValueFactory><PropertyValueFactory property="email" />
                                     </cellValueFactory>
                                 </TableColumn>
 
-                                <TableColumn prefWidth="343.0" text="telephone">
+                                <TableColumn prefWidth="155.0" text="telephone">
                                     <cellValueFactory><PropertyValueFactory property="phone" />
                                     </cellValueFactory>
                                 </TableColumn>
 
+                                <TableColumn prefWidth="128.0" text="compte">
+                                    <cellValueFactory><PropertyValueFactory property="statusString" />
+                                    </cellValueFactory>
+                                </TableColumn>
+
+
+                                <TableColumn prefWidth="128.0" text="action">
+                                    <cellValueFactory><PropertyValueFactory property="button" />
+                                    </cellValueFactory>
+                                </TableColumn>
+
+
 
                             </columns>
                         </TableView>
-                        <Button layoutX="554.0" layoutY="430.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #007bff;" text="Add" textAlignment="CENTER" textFill="#68f4f2"/>
-                        <Button layoutX="108.0" layoutY="471.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Remove select colone" textAlignment="CENTER" textFill="#68f4f2"/>
-                        <Button layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Update select colone" textAlignment="CENTER" textFill="#68f4f2"/>
+                        <JFXButton  layoutX="554.0" layoutY="430.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #007bff;" text="Add" textAlignment="CENTER" textFill="#68f4f2"/>
+                        <JFXButton layoutX="108.0" layoutY="471.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Remove select colone" textAlignment="CENTER" textFill="#68f4f2"/>
+                        <JFXButton  layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#mail" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Send Mail" textAlignment="CENTER" textFill="#68f4f2"/>
 
                         <JFXTextField fx:id="firstname" layoutX="14.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="firstname" unFocusColor="#68f4f2" />
                         <JFXTextField fx:id="lastname" layoutX="130.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="lastname" unFocusColor="#68f4f2" />
                         <JFXTextField fx:id="email" layoutX="245.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="email" unFocusColor="#68f4f2" />
                         <JFXTextField fx:id="telephone" layoutX="359.0" layoutY="430.0" prefHeight="27.0" prefWidth="114.0" promptText="telephone" unFocusColor="#68f4f2" />
                         <JFXTextField fx:id="passeword" layoutX="445.0" layoutY="430.0" prefHeight="27.0" prefWidth="59.0" promptText="password" unFocusColor="#4d4d4d66" />
-
-
 
 
                     </children>

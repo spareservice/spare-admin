@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXTextField?>
-<VBox  styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea"  style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.EmployesController">
+<VBox  styleClass="opaque" xmlns="http://javafx.com/javafx/8.0.999-ea"  stylesheets="@home.css" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esgi.java.advanced.ui.desktop.app.EmployesController">
 
     <children>
 
@@ -58,39 +58,42 @@
                         </Label>
 
                         <TableView fx:id="tableView" layoutX="8.0" layoutY="67.0" prefHeight="312.0" prefWidth="685.0">
-
-                        <columns>
-                                <TableColumn prefWidth="146.0" text="firstname">
+                            <columns>
+                                <TableColumn prefWidth="128.0" text="firstname">
                                     <cellValueFactory><PropertyValueFactory property="firstname" />
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn prefWidth="120.0" text="lastname">
+                                <TableColumn prefWidth="128.0" text="lastname">
                                     <cellValueFactory><PropertyValueFactory property="lastname" />
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn prefWidth="118.0" text="email">
+                                <TableColumn prefWidth="150.0" text="email">
                                     <cellValueFactory><PropertyValueFactory property="email" />
                                     </cellValueFactory>
                                 </TableColumn>
 
-                            <TableColumn prefWidth="343.0" text="salaire">
-                                <cellValueFactory><PropertyValueFactory property="salaire" />
-                                </cellValueFactory>
-                            </TableColumn>
+                                <TableColumn prefWidth="155.0" text="telephone">
+                                    <cellValueFactory><PropertyValueFactory property="telephone" />
+                                    </cellValueFactory>
+                                </TableColumn>
 
-                            <TableColumn prefWidth="343.0" text="telephone">
-                                <cellValueFactory><PropertyValueFactory property="tel" />
-                                </cellValueFactory>
-                            </TableColumn>
+                                <TableColumn prefWidth="128.0" text="compte">
+                                    <cellValueFactory><PropertyValueFactory property="statusString" />
+                                    </cellValueFactory>
+                                </TableColumn>
 
-                        </columns>
+
+                                <TableColumn prefWidth="128.0" text="action">
+                                    <cellValueFactory><PropertyValueFactory property="button"  />
+                                    </cellValueFactory>
+                                </TableColumn>
+
+                            </columns>
                         </TableView>
-
 
                         <Button layoutX="520.0" layoutY="430.0" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="72.0" style="-fx-background-color: #007bff;" text="add" textAlignment="CENTER" textFill="#68f4f2"/>
                         <Button layoutX="108.0" layoutY="471.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Remove select colone" textAlignment="CENTER" textFill="#68f4f2"/>
-                        <Button layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#update" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Update select colone" textAlignment="CENTER" textFill="#68f4f2"/>
-
+                        <Button layoutX="108.0" layoutY="504.0" mnemonicParsing="false" onAction="#mail" prefHeight="27.0" prefWidth="404.0" style="-fx-background-color: #007bff;" text="Send Mail" textAlignment="CENTER" textFill="#68f4f2"/>
                         <JFXTextField fx:id="firstname" layoutX="14.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="firstname" unFocusColor="#4d4d4d66" />
                         <JFXTextField  fx:id="lastname" layoutX="130.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="lastname" unFocusColor="#4d4d4d66" />
                         <JFXTextField fx:id="email" layoutX="245.0" layoutY="430.0" prefHeight="27.0" prefWidth="106.0" promptText="email" unFocusColor="#4d4d4d66" />

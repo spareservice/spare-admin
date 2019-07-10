@@ -21,9 +21,7 @@ public class Main extends Application {
     public static Stage window;
 
     public static void main(String... args) throws IOException {
-
         launch(args);
-
 
     }
 

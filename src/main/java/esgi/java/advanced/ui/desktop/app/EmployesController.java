@@ -1,6 +1,8 @@
 package esgi.java.advanced.ui.desktop.app;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import esgi.java.advanced.ui.desktop.app.Model.Client;
 import esgi.java.advanced.ui.desktop.app.Model.Employe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -27,20 +32,20 @@ public class EmployesController implements Initializable {
     @FXML private JFXTextField email;
     @FXML private JFXTextField telephone;
     @FXML private JFXTextField passeword;
+    @FXML private TableColumn <Employe,Button> sendMail;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         try {
 
             final JSONArray arr = JsonRead.call_me("http://localhost:3000/prestataire");
-            System.out.println(arr);
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.getJSONObject(i);
                 List <Employe> emloye = new ArrayList <>();
-                emloye.add(new Employe(1, o.getString("nom"), o.getString("prenom") ,o.getString("email"),o.getString("tel")));
+                emloye.add(new Employe(1, o.getString("nom"), o.getString("prenom") ,o.getString("email"),o.getString("tel"),new JFXButton("send mail"),o.getBoolean("confirmedToken")));
                 this.tableView.getItems().addAll(emloye);
-
             }
 
         } catch (Exception e) {
@@ -49,7 +54,6 @@ public class EmployesController implements Initializable {
 
 
     }
-
 
 
     @FXML
@@ -114,9 +118,7 @@ public class EmployesController implements Initializable {
 
     }
 
-    public void update(ActionEvent actionEvent) {
 
-    }
 
     public void add(ActionEvent actionEvent) throws IOException {
 
@@ -125,18 +127,28 @@ public class EmployesController implements Initializable {
         String email= this.email.getText();
         String telephone= this.telephone.getText();
         String passeword= this.passeword.getText();
+        JFXButton  button= new  JFXButton("button");
+        boolean status = false;
 
-        Employe employe = new Employe(1,firstname,lastname,email,telephone);
+
+        Employe employe = new Employe(1,firstname,lastname,email,telephone,new JFXButton("send"),status
+        );
         this.tableView.getItems().addAll(employe);
 
         String[] data = new String[]{firstname,lastname,email,passeword,telephone};
-        Httprequest.postRequest(new URL("http://localhost:3000/" +firstname+ "/" +lastname+ "/" +email+ "/" +passeword+ "/" +telephone+ "/0/ajoutPrestataire"),data);
+        Httprequest.postRequest(new URL("http://localhost:3000/prestataire/"+firstname+"/"+lastname+"/"+email+"/"+passeword+"/"+telephone+"/0/ajoutPrestataire"),data);
     }
     public void delete(ActionEvent actionEvent) throws IOException {
         Employe person = tableView.getSelectionModel().getSelectedItem();
-        Httprequest.deleteRequete(new URL("http://localhost:3000/"+person.getEmail()+"/supprimerPrestataire"));
+        Httprequest.deleteRequete(new URL("http://localhost:3000/prestataire/"+person.getEmail()+"/supprimerPrestataire"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
     }
 
+    public void mail(ActionEvent actionEvent) throws IOException{
+        Employe person = tableView.getSelectionModel().getSelectedItem();  System.out.println(person.getEmail());
+        Httprequest.Get(new URL("http://localhost:3000/mail/"+person.getEmail()+"/validate/prestatire"));
+
+
+    }
 
 }
