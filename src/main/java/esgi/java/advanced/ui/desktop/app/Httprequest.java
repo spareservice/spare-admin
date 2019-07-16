@@ -2,11 +2,9 @@ package esgi.java.advanced.ui.desktop.app;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.poi.util.IOUtils;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 
 import java.net.URL;
@@ -15,10 +13,6 @@ import java.util.List;
 
 
 public class Httprequest {
-
-    private static HttpURLConnection con;
-
-
 
     public static int  deleteRequete(URL url) {
         HttpURLConnection httpURLConnection = null;
@@ -41,9 +35,9 @@ public class Httprequest {
 
 
 
-    public static int  Get(URL url) {
+    public static int get(URL url) {
          HttpURLConnection httpURLConnection = null;
-        httpURLConnection = null;
+         httpURLConnection = null;
         int  code = 0;
         try {
             httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -92,6 +86,8 @@ for(int i=0;i<params.size();i++){
 return code;
 
 }
+
+
 
 
 

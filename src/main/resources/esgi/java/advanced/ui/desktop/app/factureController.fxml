@@ -10,7 +10,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -77,15 +76,15 @@
                                 <Button fx:id="EmployeeButton" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" onAction="#employeePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Employes" textFill="WHITE" />
                                 <Button fx:id="ClienButton" layoutX="21.0" layoutY="310.0" mnemonicParsing="false" onAction="#clientPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Client " textFill="WHITE" />
                                 <Button fx:id="ServiceButton" layoutX="21.0" layoutY="222.0" mnemonicParsing="false" onAction="#servicePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="service " textFill="WHITE" />
-                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#FacturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="WHITE" />
+                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#facturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="WHITE" />
 
                             </children>
                         </AnchorPane>
                     </content>
                 </ScrollPane>
-                <AnchorPane prefHeight="629.0" prefWidth="954.0">
+                <AnchorPane prefHeight="514.0" prefWidth="670.0">
                     <children>
-                        <Label alignment="CENTER" layoutX="287.0" layoutY="14.0" style="&#10;" text="facture" textAlignment="CENTER" wrapText="false">
+                        <Label alignment="CENTER" layoutX="416.0" layoutY="14.0" style="&#10;" text="facture" textAlignment="CENTER" wrapText="false">
                             <font>
                                 <Font size="18.0" fx:id="x7" />
                             </font>
@@ -93,26 +92,16 @@
                                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x8" />
                             </textFill>
                         </Label>
-
-                        <Label layoutX="219.0" layoutY="50.0" prefHeight="17.0" prefWidth="86.0" text="Facture" />
-                        <TableView fx:id="tableView" layoutY="41.0" prefHeight="372.0" prefWidth="929.0">
+                        <TableView fx:id="tableView" layoutX="95.0" layoutY="64.0" prefHeight="416.0" prefWidth="392.0">
                             <columns>
-                                <TableColumn text="firstname">
-                                    <cellValueFactory><PropertyValueFactory property="firstname" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn text="lastname">
-                                    <cellValueFactory><PropertyValueFactory property="lastname" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="220.0" text="email">
-                                    <cellValueFactory><PropertyValueFactory property="email" />
+                                <TableColumn prefWidth="391.0" text="Facture ">
+                                    <cellValueFactory><PropertyValueFactory property="ss" />
                                     </cellValueFactory>
                                 </TableColumn>
                             </columns>
                         </TableView>
-                  <TextField layoutX="35.0" layoutY="430.0" prefHeight="27.0" prefWidth="125.0" />
-                  <TextField layoutX="222.0" layoutY="430.0" prefHeight="27.0" prefWidth="140.0" />
+                  <Button layoutX="538.0" layoutY="118.0" mnemonicParsing="false" style="-fx-background-color: #0da0ff;"  onAction="#download"  text="télécharger" />
+                        <Button layoutX="538.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: #19ffab;"  onAction="#send" text="envoyer" />
                     </children>
                 </AnchorPane>
             </items>

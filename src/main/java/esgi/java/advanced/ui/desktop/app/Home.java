@@ -23,18 +23,12 @@ public class Home  {
     public  static JFXSnackbar snackbar;
     @FXML private JFXTextField emailField;
     @FXML private JFXPasswordField passwordField;
-
-
-
     public static Scene scene() throws java.io.IOException{
         Parent pane = FXMLLoader.load(Home.class.getResource("Home.fxml"));
         snackbar=new JFXSnackbar((Pane) pane);
         return new Scene(pane);
 
     }
-
-
-
     @FXML
     public Scene  login() {
         try {

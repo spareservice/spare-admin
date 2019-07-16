@@ -7,16 +7,13 @@ public class Admin extends Model <Admin> {
     private String email;
 
     public Admin(int id, String firstname, String lastname, String email) {
-        super(id);
+
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
     }
 
-    public Admin(int id, String nom, String prenom) {
 
-        super(id);
-    }
 
     public String getFirstname() {
         return firstname;

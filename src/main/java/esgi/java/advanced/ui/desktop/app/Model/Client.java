@@ -16,11 +16,20 @@ public class Client  extends Model <Client> {
     private String email;
     private String phone;
     private boolean status;
+    private String id;
     private String statusString;
     @FXML
     private static JFXButton button;
 
-    public Client(int id, String firstname, String lastname, String email , String phone, boolean status,JFXButton button) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Client(int id, String firstname, String lastname, String email , String phone, boolean status, JFXButton button) {
         super(id);
         this.firstname = firstname;
         this.lastname = lastname;

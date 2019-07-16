@@ -40,7 +40,7 @@
                                 <Button fx:id="EmployeeButton" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" onAction="#employeePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Employes" textFill="#68f4f2"/>
                                 <Button fx:id="ClienButton" layoutX="21.0" layoutY="310.0" mnemonicParsing="false" onAction="#clientPage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Client " textFill="#68f4f2"/>
                                 <Button fx:id="ServiceButton" layoutX="21.0" layoutY="222.0" mnemonicParsing="false" onAction="#servicePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="service " textFill="#68f4f2"/>
-                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#FacturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="#68f4f2"/>
+                                <Button fx:id="FactureButton" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#facturePage" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: #007bff;" text="Facturation " textFill="#68f4f2"/>
 
                             </children>
                         </AnchorPane>

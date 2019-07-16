@@ -21,11 +21,9 @@ import java.util.ResourceBundle;
 public class ServiceController implements Initializable {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
-
     @FXML private JFXTextField type;
     @FXML private JFXTextField nom;
     @FXML private TableView <Mission> tableView;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -46,7 +44,6 @@ public class ServiceController implements Initializable {
 
 
     }
-
     @FXML
     public void adminPage(javafx.event.ActionEvent actionEvent) {
 
@@ -96,7 +93,7 @@ public class ServiceController implements Initializable {
             AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
     }
-    public void FacturePage(ActionEvent actionEvent) {
+    public void facturePage(ActionEvent actionEvent) {
         try {
 
             Parent homePage = FXMLLoader.load(getClass().getResource( "factureController.fxml"));
@@ -108,11 +105,6 @@ public class ServiceController implements Initializable {
         }
 
     }
-
-    public void update(ActionEvent actionEvent) {
-
-    }
-
     public void add(ActionEvent actionEvent) throws IOException {
 
         String type= this.type.getText();

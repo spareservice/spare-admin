@@ -3,7 +3,6 @@ package esgi.java.advanced.ui.desktop.app;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import esgi.java.advanced.ui.desktop.app.Model.Client;
-import esgi.java.advanced.ui.desktop.app.Model.Employe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,15 +30,11 @@ public class Clientcontroller  implements Initializable {
     @FXML private JFXTextField passeword;
 
 
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
         try {
-
              final JSONArray arr = JsonRead.call_me("http://localhost:3000/client");
              for (int i = 0; i < arr.length(); i++) {
                  JSONObject o = arr.getJSONObject(i);
@@ -68,7 +62,6 @@ public class Clientcontroller  implements Initializable {
             AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
     }
-
     public void employeePage(ActionEvent actionEvent) throws IOException {
         try {
 
@@ -80,7 +73,6 @@ public class Clientcontroller  implements Initializable {
             AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
     }
-
     public void clientPage(ActionEvent actionEvent) throws IOException {
         try {
 
@@ -103,7 +95,7 @@ public class Clientcontroller  implements Initializable {
             AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
     }
-    public void FacturePage(ActionEvent actionEvent) {
+    public void facturePage(ActionEvent actionEvent) {
         try {
 
             Parent homePage = FXMLLoader.load(getClass().getResource( "factureController.fxml"));
@@ -115,8 +107,6 @@ public class Clientcontroller  implements Initializable {
         }
 
     }
-
-
     public void add(ActionEvent actionEvent) throws IOException {
         String firstname= this.firstname.getText();
         String lastname= this.lastname.getText();
@@ -145,18 +135,16 @@ public class Clientcontroller  implements Initializable {
 
 
     }
-
     public void delete(ActionEvent actionEvent) throws IOException {
         Client person = tableView.getSelectionModel().getSelectedItem();
         Httprequest.deleteRequete(new URL("http://localhost:3000/client/"+person.getEmail()+"/supprimerClient"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
 
     }
-
     public void mail(ActionEvent actionEvent) throws IOException {
         Client person = tableView.getSelectionModel().getSelectedItem();
         System.out.println(person.getEmail());
-        Httprequest.Get(new URL("http://localhost:3000/mail/"+person.getEmail()+"/validate/Client"));
+        Httprequest.get(new URL("http://localhost:3000/mail/"+person.getEmail()+"/validate/Client"));
 
 
     }

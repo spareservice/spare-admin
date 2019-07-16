@@ -2,7 +2,6 @@ package esgi.java.advanced.ui.desktop.app;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import esgi.java.advanced.ui.desktop.app.Model.Client;
 import esgi.java.advanced.ui.desktop.app.Model.Employe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -37,9 +35,7 @@ public class EmployesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         try {
-
             final JSONArray arr = JsonRead.call_me("http://localhost:3000/prestataire");
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.getJSONObject(i);
@@ -105,7 +101,7 @@ public class EmployesController implements Initializable {
             AfficherAlerte.display("Erreur", "Il y a eu une erreur");
         }
     }
-    public void FacturePage(ActionEvent actionEvent) {
+    public void facturePage(ActionEvent actionEvent) {
         try {
 
             Parent homePage = FXMLLoader.load(getClass().getResource( "factureController.fxml"));
@@ -117,9 +113,6 @@ public class EmployesController implements Initializable {
         }
 
     }
-
-
-
     public void add(ActionEvent actionEvent) throws IOException {
 
         String firstname= this.firstname.getText();
@@ -143,10 +136,9 @@ public class EmployesController implements Initializable {
         Httprequest.deleteRequete(new URL("http://localhost:3000/prestataire/"+person.getEmail()+"/supprimerPrestataire"));
         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
     }
-
     public void mail(ActionEvent actionEvent) throws IOException{
         Employe person = tableView.getSelectionModel().getSelectedItem();  System.out.println(person.getEmail());
-        Httprequest.Get(new URL("http://localhost:3000/mail/"+person.getEmail()+"/validate/prestatire"));
+        Httprequest.get(new URL("http://localhost:3000/mail/"+person.getEmail()+"/validate/prestatire"));
 
 
     }
